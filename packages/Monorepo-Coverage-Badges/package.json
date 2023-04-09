@@ -37,9 +37,7 @@
 		"test:watch": "vitest --ui --coverage",
 		"test:ci": "vitest --run --coverage",
 		"lint": "eslint --fix --ext .ts ./ && prettier -w .",
-		"lint:ci": "eslint --ext .ts ./ && prettier --check .",
-		"badges": "node bin/cli.js --config badges.config.cjs",
-		"badges:ci": "node bin/cli.js --ci --config badges.config.cjs"
+		"lint:ci": "eslint --ext .ts ./ && prettier --check ."
 	},
 	"dependencies": {
 		"chalk": "^5.2.0",

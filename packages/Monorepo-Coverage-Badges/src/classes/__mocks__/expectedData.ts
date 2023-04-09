@@ -73,7 +73,7 @@ expectedParseCoverageData[coverageSummaryPath][`${join(directoryName, "src", "cl
 export const EXPECTED_PARSE_COVERAGE_DATA = expectedParseCoverageData;
 
 const expectedBadgesPerFile: Record<string, Record<keyof typeof COVERAGE_REPLACEMENTS, BadgeLocation[]>> = {};
-expectedBadgesPerFile[join("src", "classes", "__mocks__", "README.md")] = {
+expectedBadgesPerFile[join("src", "classes", "__mocks__", "test_README.md")] = {
 	coverage: [
 		{
 			fullLine: "line 13 https://img.shields.io/badge/dwa-90.57%25-success.svg?placeholder=$coverage-url$&style=flat",
@@ -120,7 +120,7 @@ export const EXPECTED_BADGES_PER_FILE = expectedBadgesPerFile;
 
 const expectedBadgesPerFileWithNewBadges: Record<string, [BadgeLocation, string][]> = {};
 
-expectedBadgesPerFileWithNewBadges[join("src", "classes", "__mocks__", "README.md")] = [
+expectedBadgesPerFileWithNewBadges[join("src", "classes", "__mocks__", "test_README.md")] = [
 	[
 		{
 			fullLine: "line 13 https://img.shields.io/badge/dwa-90.57%25-success.svg?placeholder=$coverage-url$&style=flat",
@@ -189,7 +189,7 @@ expectedBadgesPerFileWithNewBadges[join("src", "classes", "__mocks__", "README.m
 export const EXPECTED_BADGES_PER_FILE_WITH_NEW_BADGES = expectedBadgesPerFileWithNewBadges;
 
 const expectedBadgesPerFileWithNewBadges2: Record<string, [BadgeLocation, string][]> = {};
-expectedBadgesPerFileWithNewBadges2[join("src", "classes", "__mocks__", "README.md")] = [
+expectedBadgesPerFileWithNewBadges2[join("src", "classes", "__mocks__", "test_README.md")] = [
 	[
 		{
 			fullLine: "line 13 https://img.shields.io/badge/dwa-90.57%25-success.svg?placeholder=$coverage-url$&style=flat",
@@ -281,7 +281,7 @@ export const EXPECTED_BADGES_PER_FILE_WITH_NEW_BADGES2 = expectedBadgesPerFileWi
 		silent: false,
 		coverageFiles: "**/coverage-summary.json",
 		mdFiles: {
-			"**/README.md": {
+			"**/*README.md": {
 				coverage: {
 					label: "coverage",
 					style: "flat",

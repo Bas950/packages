@@ -1,8 +1,8 @@
-import { writeFileSync } from "node:fs";
+import { rmSync, writeFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { beforeAll, describe, expect, test, vitest } from "vitest";
+import { afterAll, beforeAll, describe, expect, test, vitest } from "vitest";
 
 import { activeConfig } from "../index.js";
 import { DEFAULT_CONFIG } from "../util/constants.js";
@@ -37,6 +37,11 @@ beforeAll(async () => {
 		join(directoryName, "src", "classes", "__mocks__", "coverage", "coverage-summary.json"),
 		JSON.stringify(coverageSummaryTemplateParsedNew, undefined, 2)
 	);
+});
+
+afterAll(() => {
+	//Delete the coverage-summary.json file
+	rmSync(join(directoryName, "src", "classes", "__mocks__", "coverage", "coverage-summary.json"));
 });
 
 describe("BadgeGenerator", () => {
@@ -173,7 +178,7 @@ describe("BadgeGenerator", () => {
 			});
 
 		await expect(badgeGenerator.findFiles()).resolves.not.toThrowError();
-		expect(badgeGenerator.fileLocations).toEqual([join("src", "classes", "__mocks__", "README.md")]);
+		expect(badgeGenerator.fileLocations).toEqual([join("src", "classes", "__mocks__", "test_README.md")]);
 
 		expect(spy).toHaveBeenCalledTimes(1);
 		expect(spy).toHaveBeenCalledWith("<blue>[INFO] Found 1 (markdown) files.");
@@ -207,7 +212,7 @@ describe("BadgeGenerator", () => {
 		const badgeGenerator = new BadgeGenerator(),
 			spy = vitest.spyOn(global.console, "log");
 
-		badgeGenerator.fileLocations = [join("src", "classes", "__mocks__", "README.md")];
+		badgeGenerator.fileLocations = [join("src", "classes", "__mocks__", "test_README.md")];
 
 		await expect(badgeGenerator.locateBadges()).resolves.not.toThrowError();
 		expect(badgeGenerator.badgesPerFile).toStrictEqual(EXPECTED_BADGES_PER_FILE);
@@ -318,7 +323,9 @@ describe("BadgeGenerator", () => {
 		expect(() => badgeGenerator.generateBadges()).toThrowError();
 
 		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(`<red>[ERROR] Could not find coverage config for ${join(directoryName, "src", "classes", "__mocks__", "README.md")}!`);
+		expect(spy).toHaveBeenCalledWith(
+			`<red>[ERROR] Could not find coverage config for ${join(directoryName, "src", "classes", "__mocks__", "test_README.md")}!`
+		);
 		expect(processExitSpy).toHaveBeenCalledTimes(1);
 
 		spy.mockRestore();

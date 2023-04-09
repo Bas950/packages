@@ -5,9 +5,9 @@
 /** @type {import('monorepo-coverage-badges').Config} */
 module.exports = {
 	silent: false,
-	coverageFiles: "coverage/coverage-summary.json",
+	coverageFiles: "**/coverage/coverage-summary.json",
 	mdFiles: {
-		"**/*.md": {
+		"**/README.md": {
 			coverage: {
 				logo: "vitest",
 			},

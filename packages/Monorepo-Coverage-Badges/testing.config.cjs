@@ -7,7 +7,7 @@ module.exports = {
 	silent: false,
 	coverageFiles: "**/coverage-summary.json",
 	mdFiles: {
-		"**/README.md": {
+		"**/*README.md": {
 			coverage: {
 				label: "coverage",
 				style: "flat",
