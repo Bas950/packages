@@ -1,39 +1,24 @@
 name: Ecosystem
 on: [push]
 jobs:
-  "Core":
-    name: '@PostgreSQL-Typed/Core'
+  "DisplayAsTree":
+    name: 'DisplayAsTree'
     uses: ./.github/workflows/package.yml
     with:
-      package: postgresql-typed
-  "PostgreSQL-Caching":
-    name: PostgreSQL-Caching
+      package: 'displayastree'
+  "Language-Flag-Colors":
+    name: 'Language-Flag-Colors'
     uses: ./.github/workflows/package.yml
     with:
-      package: postgresql-caching
-  "OIDs":
-    name: '@PostgreSQL-Typed/OIDs'
+      package: 'language-flag-colors'
+  "Monorepo-Coverage-Badges":
+    name: 'Monorepo-Coverage-Badges'
     uses: ./.github/workflows/package.yml
     with:
-      package: '@postgresql-typed/oids'
-  "Parsers":
-    name: '@PostgreSQL-Typed/Parsers'
-    uses: ./.github/workflows/package.yml
-    with:
-      package: '@postgresql-typed/parsers'
-  "CLI":
-    name: '@PostgreSQL-Typed/CLI'
-    uses: ./.github/workflows/package.yml
-    with:
-      package: '@postgresql-typed/cli'
-  "UI":
-    name: '@PostgreSQL-Typed/UI'
-    uses: ./.github/workflows/package.yml
-    with:
-      package: '@postgresql-typed/ui'
+      package: 'monorepo-coverage-badges'
   coverage:
     name: Coverage
-    needs: [Core, PostgreSQL-Caching, OIDs, Parsers, CLI, UI]
+    needs: [DisplayAsTree, Language-Flag-Colors, Monorepo-Coverage-Badges, Parsers, CLI, UI]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
