@@ -1,0 +1,81 @@
+name: Package
+
+on:
+  workflow_call:
+    inputs:
+      package:
+        required: true
+        type: string
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+
+      - name: Run lint
+        run: pnpm lint:ci --filter ${{ inputs.package }}
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+
+      - name: Run build
+        run: pnpm build --filter ${{ inputs.package }}
+
+  "Test":
+    needs: build
+    name: Test Node-${{matrix.node}}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["16", "17", "current", "latest"]
+    services:
+      postgres:
+        image: postgres:${{ matrix.postgres }}
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Run build
+        run: pnpm build --filter ${{ inputs.package }}
+
+      - name: Run tests
+        run: pnpm test:ci --filter ${{ inputs.package }}
+
+      - name: Upload coverage
+        if: ${{matrix.node == 'current' && matrix.postgres == 'latest'}}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Coverage
+          path: packages/*/coverage/coverage-summary.json
+          #if-no-files-found: error
+          retention-days: 1

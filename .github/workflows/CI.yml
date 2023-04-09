@@ -1,0 +1,73 @@
+name: Ecosystem
+on: [push]
+jobs:
+  "Core":
+    name: '@PostgreSQL-Typed/Core'
+    uses: ./.github/workflows/package.yml
+    with:
+      package: postgresql-typed
+  "PostgreSQL-Caching":
+    name: PostgreSQL-Caching
+    uses: ./.github/workflows/package.yml
+    with:
+      package: postgresql-caching
+  "OIDs":
+    name: '@PostgreSQL-Typed/OIDs'
+    uses: ./.github/workflows/package.yml
+    with:
+      package: '@postgresql-typed/oids'
+  "Parsers":
+    name: '@PostgreSQL-Typed/Parsers'
+    uses: ./.github/workflows/package.yml
+    with:
+      package: '@postgresql-typed/parsers'
+  "CLI":
+    name: '@PostgreSQL-Typed/CLI'
+    uses: ./.github/workflows/package.yml
+    with:
+      package: '@postgresql-typed/cli'
+  "UI":
+    name: '@PostgreSQL-Typed/UI'
+    uses: ./.github/workflows/package.yml
+    with:
+      package: '@postgresql-typed/ui'
+  coverage:
+    name: Coverage
+    needs: [Core, PostgreSQL-Caching, OIDs, Parsers, CLI, UI]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+
+      - name: Download coverage
+        uses: actions/download-artifact@v3
+        with:
+          name: Coverage
+
+      - name: Check badges
+        run: pnpm badges:ci
+  changesets:
+    name: Publish
+    needs: coverage
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+          commit: 'chore: release package(s)'
+          title: 'chore: release package(s)'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
