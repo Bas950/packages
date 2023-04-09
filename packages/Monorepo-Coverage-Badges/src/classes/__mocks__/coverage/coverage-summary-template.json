@@ -1,0 +1,63 @@
+{
+	"total": {
+		"lines": { "total": 739, "covered": 417, "skipped": 0, "pct": 56.42 },
+		"statements": { "total": 739, "covered": 417, "skipped": 0, "pct": 56.42 },
+		"functions": { "total": 42, "covered": 19, "skipped": 0, "pct": 45.23 },
+		"branches": { "total": 18, "covered": 13, "skipped": 0, "pct": 72.22 },
+		"branchesTrue": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+	},
+	"src\\index.ts": {
+		"lines": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+		"functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+		"statements": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+		"branches": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 }
+	},
+	"src\\classes\\Badge.ts": {
+		"lines": { "total": 55, "covered": 16, "skipped": 0, "pct": 29.09 },
+		"functions": { "total": 8, "covered": 0, "skipped": 0, "pct": 0 },
+		"statements": { "total": 55, "covered": 16, "skipped": 0, "pct": 29.09 },
+		"branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+	},
+	"src\\classes\\BadgeGenerator.ts": {
+		"lines": { "total": 269, "covered": 62, "skipped": 0, "pct": 23.04 },
+		"functions": { "total": 13, "covered": 3, "skipped": 0, "pct": 23.07 },
+		"statements": { "total": 269, "covered": 62, "skipped": 0, "pct": 23.04 },
+		"branches": { "total": 4, "covered": 3, "skipped": 0, "pct": 75 }
+	},
+	"src\\classes\\ConfigHandler.ts": {
+		"lines": { "total": 77, "covered": 37, "skipped": 0, "pct": 48.05 },
+		"functions": { "total": 4, "covered": 2, "skipped": 0, "pct": 50 },
+		"statements": { "total": 77, "covered": 37, "skipped": 0, "pct": 48.05 },
+		"branches": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 }
+	},
+	"src\\util\\configs.ts": {
+		"lines": { "total": 168, "covered": 168, "skipped": 0, "pct": 100 },
+		"functions": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+		"statements": { "total": 168, "covered": 168, "skipped": 0, "pct": 100 },
+		"branches": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 }
+	},
+	"src\\util\\constants.ts": {
+		"lines": { "total": 56, "covered": 56, "skipped": 0, "pct": 100 },
+		"functions": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+		"statements": { "total": 56, "covered": 56, "skipped": 0, "pct": 100 },
+		"branches": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 }
+	},
+	"src\\util\\coverage.ts": {
+		"lines": { "total": 42, "covered": 42, "skipped": 0, "pct": 100 },
+		"functions": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+		"statements": { "total": 42, "covered": 42, "skipped": 0, "pct": 100 },
+		"branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+	},
+	"src\\util\\getNewConfig.ts": {
+		"lines": { "total": 43, "covered": 13, "skipped": 0, "pct": 30.23 },
+		"functions": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 },
+		"statements": { "total": 43, "covered": 13, "skipped": 0, "pct": 30.23 },
+		"branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+	},
+	"src\\classes\\__mocks__\\expectedData.ts": {
+		"lines": { "total": 22, "covered": 16, "skipped": 0, "pct": 72.72 },
+		"functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+		"statements": { "total": 22, "covered": 16, "skipped": 0, "pct": 72.72 },
+		"branches": { "total": 6, "covered": 2, "skipped": 0, "pct": 33.33 }
+	}
+}
