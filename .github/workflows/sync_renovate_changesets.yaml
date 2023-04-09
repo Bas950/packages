@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     runs-on: ubuntu-latest
-    if: github.actor == 'renovate[bot]' && github.repository == 'PostgreSQL-Typed/PostgreSQL-Typed'
+    if: github.actor == 'renovate[bot]' && github.repository == 'Bas950/packages'
     steps:
       - name: Checkout
         uses: actions/checkout@v3

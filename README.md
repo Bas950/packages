@@ -34,7 +34,7 @@
 <br/>
 <!-- Language-Flag-Colors -->
 <h2 align="center">
-	<a href="https://github.com/PostgreSQL-Typed/PostgreSQL-Typed/tree/main/packages/Language-Flag-Colors">
+	<a href="https://github.com/Bas950/packages/tree/main/packages/Language-Flag-Colors">
 		Language-Flag-Colors
 	</a>
 </h2>
@@ -52,7 +52,7 @@
 <br/>
 <!-- Monorepo-Coverage-Badges -->
 <h2 align="center">
-	<a href="https://github.com/PostgreSQL-Typed/PostgreSQL-Typed/tree/main/packages/Monorepo-Coverage-Badges">
+	<a href="https://github.com/Bas950/packages/tree/main/packages/Monorepo-Coverage-Badges">
 		Monorepo-Coverage-Badges
 	</a>
 </h2>
