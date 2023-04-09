@@ -6,17 +6,14 @@ import { activeConfig } from "../index.js";
 export const logger = (type: "info" | "error" | "warn", ...text: string[]) => {
 	if (activeConfig.config.silent && type !== "error") return;
 	switch (type) {
-		case "info": {
+		case "info":
 			for (const t of text) console.log(chalk.blue("[INFO] ") + t);
 			break;
-		}
-		case "error": {
+		case "error":
 			for (const t of text) console.log(chalk.red("[ERROR] ") + t);
 			break;
-		}
-		case "warn": {
+		case "warn":
 			for (const t of text) console.log(chalk.yellow("[WARN] ") + t);
 			break;
-		}
 	}
 };
