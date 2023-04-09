@@ -18,7 +18,7 @@ jobs:
       package: 'monorepo-coverage-badges'
   coverage:
     name: Coverage
-    needs: [DisplayAsTree, Language-Flag-Colors, Monorepo-Coverage-Badges, Parsers, CLI, UI]
+    needs: [DisplayAsTree, Language-Flag-Colors, Monorepo-Coverage-Badges]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
