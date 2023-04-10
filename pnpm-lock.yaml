@@ -10,7 +10,7 @@ importers:
       '@rushstack/eslint-patch': ^1.2.0
       '@typescript-eslint/eslint-plugin': ^5.50.0
       '@typescript-eslint/parser': ^5.50.0
-      '@vitest/coverage-c8': ^0.27.1
+      '@vitest/coverage-c8': ^0.29.0
       '@vitest/ui': ^0.27.1
       commitlint: ^17.4.2
       eslint: ^8.33.0
@@ -33,7 +33,7 @@ importers:
       '@rushstack/eslint-patch': 1.2.0
       '@typescript-eslint/eslint-plugin': 5.57.1_ee6im73s67lpei4iwnuz5bbxxm
       '@typescript-eslint/parser': 5.57.1_ze6bmax3gcsfve3yrzu6npguhe
-      '@vitest/coverage-c8': 0.27.3_@vitest+ui@0.27.3
+      '@vitest/coverage-c8': 0.29.8_vitest@0.27.3
       '@vitest/ui': 0.27.3
       commitlint: 17.5.1
       eslint: 8.38.0
@@ -1167,23 +1167,15 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
-  /@vitest/coverage-c8/0.27.3_@vitest+ui@0.27.3:
-    resolution: {integrity: sha512-xIN4FXXwJqeP6z0gfQ06gbyBMRN2mYvZ4/mn4F96mKXzch0Y93fBeS81eo7D/2YtjbeJBUcU9/amPVb2T+h83Q==}
+  /@vitest/coverage-c8/0.29.8_vitest@0.27.3:
+    resolution: {integrity: sha512-y+sEMQMctWokjnSqm3FCQEYFkjLrYaznsxEZHxcx8z2aftpYg3A5tvI1S5himfdEFo7o+OeHzh40bPSWZHW4oQ==}
+    peerDependencies:
+      vitest: '>=0.29.0 <1'
     dependencies:
       c8: 7.13.0
+      picocolors: 1.0.0
+      std-env: 3.3.2
       vitest: 0.27.3_@vitest+ui@0.27.3
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - happy-dom
-      - jsdom
-      - less
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
     dev: true
 
   /@vitest/ui/0.27.3:
