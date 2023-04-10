@@ -1,0 +1,21 @@
+'repo maintenance':
+- '*'
+
+'DisplayAsTree':
+- packages/DisplayAsTree/*
+- packages/DisplayAsTree/**/*
+
+'Language-Flag-Colors':
+- packages/Language-Flag-Colors/*
+- packages/Language-Flag-Colors/**/*
+
+'Monorepo-Coverage-Badges':
+- packages/Monorepo-Coverage-Badges/*
+- packages/Monorepo-Coverage-Badges/**/*
+
+test:
+- '**/src/**/*.test.ts'
+- '**/__mocks__/**/*'
+
+documentation:
+- '**/*.md'
