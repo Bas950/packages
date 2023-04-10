@@ -33,7 +33,7 @@ jobs:
           name: Coverage
 
       - name: Build badges package
-        run: pnpm build --filter monorepo-coverage-badges
+        run: pnpm build --filter monorepo-coverage-badges && pnpm i
 
       - name: Check badges
         run: pnpm badges:ci
