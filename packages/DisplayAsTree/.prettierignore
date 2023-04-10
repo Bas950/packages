@@ -1,0 +1,11 @@
+node_modules
+dist
+lib
+bin
+.github
+.*
+pnpm*
+*.md
+*.js
+*.d.ts
+coverage

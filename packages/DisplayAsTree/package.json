@@ -1,0 +1,56 @@
+{
+	"name": "displayastree",
+	"description": "Simple way to display data as a tree structure.",
+	"version": "2.0.0",
+	"type": "module",
+	"exports": "./lib/index.js",
+	"types": "./lib/index.d.ts",
+	"license": "MPL-2.0",
+	"author": {
+		"name": "Bas950",
+		"email": "me@bas950.com",
+		"url": "https://bas950.com"
+	},
+	"contributors": [
+		"Timeraa",
+		"Jumbo_1907"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Bas950/packages.git",
+		"directory": "packages/DisplayAsTree"
+	},
+	"bugs": {
+		"url": "https://github.com/Bas950/packages/issues"
+	},
+	"files": [
+		"lib"
+	],
+	"keywords": [
+		"typescript",
+		"tree",
+		"data",
+		"display",
+		"list"
+	],
+	"scripts": {
+		"dev": "tsc -w",
+		"build": "tsc",
+		"test": "vitest --run",
+		"test:watch": "vitest --ui --coverage",
+		"test:ci": "vitest --run --coverage",
+		"lint": "eslint --fix --ext .ts ./ && prettier -w .",
+		"lint:ci": "eslint --ext .ts ./ && prettier --check ."
+	},
+	"dependencies": {
+		"source-map-support": "^0.5.21"
+	},
+	"devDependencies": {
+		"typescript": "^4.9.5"
+	},
+	"packageManager": "pnpm@7.17.0",
+	"engines": {
+		"node": ">=16 <17",
+		"pnpm": ">=7.17.0"
+	}
+}
