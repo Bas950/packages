@@ -16,7 +16,7 @@
 
 <!-- DisplayAsTree -->
 <h2 align="center">
-	<a href="https://github.com/Bas950/packges/tree/main/packages/DisplayAsTree">
+	<a href="https://github.com/Bas950/packages/tree/main/packages/DisplayAsTree">
 		DisplayAsTree
 	</a>
 </h2>
