@@ -50,6 +50,15 @@ importers:
       typescript: 4.9.5
       vitest: 0.27.3_@vitest+ui@0.27.3
 
+  packages/DisplayAsTree:
+    specifiers:
+      source-map-support: ^0.5.21
+      typescript: ^4.9.5
+    dependencies:
+      source-map-support: 0.5.21
+    devDependencies:
+      typescript: 4.9.5
+
   packages/Language-Flag-Colors:
     specifiers:
       got: ^12.6.0
