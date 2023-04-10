@@ -17,7 +17,7 @@
 <p>
 <br>
 
-![Display As Tree](assets/displayastree.png)
+![Display As Tree](https://cdn.rcd.gg/displayastree/main.png)
 <br>
 _Screenshot taken from [DevScript](https://www.npmjs.com/package/ts-devscript) to be used as an example._
 
@@ -61,7 +61,7 @@ tree.addBranch([branchOne, branchTwo]).log();
 
 Will log:
 <br>
-![Display As Tree](assets/usageexampleone.png)
+![Display As Tree](https://cdn.rcd.gg/displayastree/usage1.png)
 
 ### Tree without inner sections:
 
@@ -71,7 +71,7 @@ new Tree("A test").addBranch(["a", "b", "c"]).log();
 
 Will log:
 <br>
-![Display As Tree](assets/usageexampletwo.png)
+![Display As Tree](https://cdn.rcd.gg/displayastree/usage2.png)
 
 ## Options
 
