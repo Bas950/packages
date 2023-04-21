@@ -49,7 +49,7 @@
 		"got": "^12.6.0",
 		"typescript": "^5.0.4"
 	},
-	"packageManager": "pnpm@7.32.0",
+	"packageManager": "pnpm@7.32.1",
 	"engines": {
 		"node": ">=16",
 		"pnpm": ">=7.17.0"
