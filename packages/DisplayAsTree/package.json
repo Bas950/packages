@@ -2,10 +2,19 @@
 	"name": "displayastree",
 	"description": "Simple way to display data as a tree structure.",
 	"version": "2.0.0",
-	"type": "module",
-	"exports": "./lib/index.js",
-	"types": "./lib/index.d.ts",
 	"license": "MPL-2.0",
+	"main": "lib/cjs/index.js",
+	"module": "lib/mjs/index.js",
+	"types": "lib/mjs/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./lib/mjs/index.js",
+			"require": "./lib/cjs/index.js"
+		}
+	},
+	"files": [
+		"lib"
+	],
 	"author": {
 		"name": "Bas950",
 		"email": "me@bas950.com",
@@ -23,9 +32,6 @@
 	"bugs": {
 		"url": "https://github.com/Bas950/packages/issues"
 	},
-	"files": [
-		"lib"
-	],
 	"keywords": [
 		"typescript",
 		"tree",
@@ -34,8 +40,8 @@
 		"list"
 	],
 	"scripts": {
-		"dev": "tsc -w",
-		"build": "tsc",
+		"dev": "tsc -p tsconfig.json -w",
+		"build": "rimraf lib/* && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && ./fixup",
 		"test": "vitest --run",
 		"test:watch": "vitest --ui --coverage",
 		"test:ci": "vitest --run --coverage",
