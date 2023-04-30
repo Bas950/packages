@@ -48,9 +48,6 @@
 		"lint": "eslint --fix --ext .ts ./ && prettier -w .",
 		"lint:ci": "eslint --ext .ts ./ && prettier --check ."
 	},
-	"dependencies": {
-		"source-map-support": "^0.5.21"
-	},
 	"devDependencies": {
 		"got": "^12.6.0",
 		"typescript": "^5.0.4"
