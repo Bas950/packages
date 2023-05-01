@@ -41,7 +41,7 @@
 	],
 	"scripts": {
 		"dev": "tsc -p tsconfig.json -w",
-		"build": "rimraf lib/* && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && ./fixup.sh",
+		"build": "rimraf lib/* && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && ./fixup",
 		"test": "vitest --run",
 		"test:watch": "vitest --ui --coverage",
 		"test:ci": "vitest --run --coverage",
