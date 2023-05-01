@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- ca3937c: chore: no longer use source-map-support
+
 All notable changes to this project will be documented in this file.
 
 ## 2.2.0
