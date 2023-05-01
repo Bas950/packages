@@ -82,10 +82,6 @@ importers:
         version: 5.0.4
 
   packages/Language-Flag-Colors:
-    dependencies:
-      source-map-support:
-        specifier: ^0.5.21
-        version: 0.5.21
     devDependencies:
       got:
         specifier: ^12.6.0
