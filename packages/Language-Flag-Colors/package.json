@@ -1,6 +1,6 @@
 {
 	"name": "language-flag-colors",
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"description": "A package with the color of every language's flag",
 	"license": "MPL-2.0",
 	"main": "lib/cjs/index.js",
