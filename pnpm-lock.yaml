@@ -26,8 +26,8 @@ importers:
         specifier: ^0.33.0
         version: 0.33.0(vitest@0.31.4)
       '@vitest/ui':
-        specifier: ^0.33.0
-        version: 0.33.0(vitest@0.31.4)
+        specifier: ^0.34.0
+        version: 0.34.0(vitest@0.31.4)
       commitlint:
         specifier: ^17.5.1
         version: 17.5.1
@@ -69,7 +69,7 @@ importers:
         version: 5.0.4
       vitest:
         specifier: 0.31.4
-        version: 0.31.4(@vitest/ui@0.33.0)
+        version: 0.31.4(@vitest/ui@0.34.0)
 
   packages/DisplayAsTree:
     dependencies:
@@ -1253,7 +1253,7 @@ packages:
       magic-string: 0.30.1
       picocolors: 1.0.0
       std-env: 3.3.3
-      vitest: 0.31.4(@vitest/ui@0.33.0)
+      vitest: 0.31.4(@vitest/ui@0.34.0)
     dev: true
 
   /@vitest/expect@0.31.4:
@@ -1287,19 +1287,19 @@ packages:
       tinyspy: 2.1.0
     dev: true
 
-  /@vitest/ui@0.33.0(vitest@0.31.4):
-    resolution: {integrity: sha512-7gbAjLqt30R4bodkJAutdpy4ncv+u5IKTHYTow1c2q+FOxZUC9cKOSqMUxjwaaTwLN+EnDnmXYPtg3CoahaUzQ==}
+  /@vitest/ui@0.34.0(vitest@0.31.4):
+    resolution: {integrity: sha512-+MPvbOiKrOWm1JL8hfROybzTB0Y6gWbMCQZlEI67M1+a1iTjaowXTeYSN4pGu0SubeGJw0JTrZ/Z/sRLmb9wLw==}
     peerDependencies:
       vitest: '>=0.30.1 <1'
     dependencies:
-      '@vitest/utils': 0.33.0
+      '@vitest/utils': 0.34.0
       fast-glob: 3.3.0
       fflate: 0.8.0
       flatted: 3.2.7
       pathe: 1.1.1
       picocolors: 1.0.0
       sirv: 2.0.3
-      vitest: 0.31.4(@vitest/ui@0.33.0)
+      vitest: 0.31.4(@vitest/ui@0.34.0)
     dev: true
 
   /@vitest/utils@0.31.4:
@@ -1310,8 +1310,8 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@vitest/utils@0.33.0:
-    resolution: {integrity: sha512-pF1w22ic965sv+EN6uoePkAOTkAPWM03Ri/jXNyMIKBb/XHLDPfhLvf/Fa9g0YECevAIz56oVYXhodLvLQ/awA==}
+  /@vitest/utils@0.34.0:
+    resolution: {integrity: sha512-IktrDLhBKf3dEUUxH+lcHiPnaw952+GdGvoxg99liMscgP6IePf6LuMY7B9dEIHkFunB1R8VMR/wmI/4UGg1aw==}
     dependencies:
       diff-sequences: 29.4.3
       loupe: 2.3.6
@@ -4815,7 +4815,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest@0.31.4(@vitest/ui@0.33.0):
+  /vitest@0.31.4(@vitest/ui@0.34.0):
     resolution: {integrity: sha512-GoV0VQPmWrUFOZSg3RpQAPN+LPmHg2/gxlMNJlyxJihkz6qReHDV6b0pPDcqFLNEPya4tWJ1pgwUNP9MLmUfvQ==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -4853,7 +4853,7 @@ packages:
       '@vitest/runner': 0.31.4
       '@vitest/snapshot': 0.31.4
       '@vitest/spy': 0.31.4
-      '@vitest/ui': 0.33.0(vitest@0.31.4)
+      '@vitest/ui': 0.34.0(vitest@0.31.4)
       '@vitest/utils': 0.31.4
       acorn: 8.8.2
       acorn-walk: 8.2.0
