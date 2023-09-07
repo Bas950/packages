@@ -13,7 +13,7 @@ jobs:
     name: Lint
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Prepare environment
         uses: ./.github/actions/prepareEnvironment
@@ -26,7 +26,7 @@ jobs:
     name: Build
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Prepare environment
         uses: ./.github/actions/prepareEnvironment
@@ -44,7 +44,7 @@ jobs:
         node: ["16", "17", "current", "latest"]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Prepare environment
         uses: ./.github/actions/prepareEnvironment
