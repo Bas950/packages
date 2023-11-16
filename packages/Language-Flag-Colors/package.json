@@ -49,7 +49,7 @@
 		"lint:ci": "eslint --ext .ts ./ && prettier --check ."
 	},
 	"devDependencies": {
-		"got": "^12.6.0",
+		"got": "^13.0.0",
 		"typescript": "^5.0.4"
 	},
 	"packageManager": "pnpm@8.5.1",
