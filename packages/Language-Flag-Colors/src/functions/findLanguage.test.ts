@@ -126,6 +126,7 @@ describe("findLanguage()", () => {
 
 	test("Finding the language of a language given its name", () => {
 		expect(findLanguage("english")).toStrictEqual(EN);
+		expect(findLanguage("uguese")).toStrictEqual(PT);
 	});
 
 	test("Finding the language of a language given its osxCode", () => {
