@@ -1,1 +1,1 @@
-module.exports = require("./configs/.prettierrc.cjs");
+module.exports = require("@recodive/configs").default.prettier;

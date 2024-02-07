@@ -35,8 +35,6 @@ export interface DefaultBadge {
 }
 
 export const DefaultBadgeSchema = z.object({
-	style: BadgeStylesSchema.default("flat"),
-	logo: z.string().optional(),
 	color: z
 		.record(z.string())
 		.default({
@@ -49,7 +47,7 @@ export const DefaultBadgeSchema = z.object({
 				.object({
 					uncovered: z.string(),
 				})
-				.default({ uncovered: "informational" })
+				.default({ uncovered: "informational" }),
 		)
 		.default({
 			"<80": "critical",
@@ -57,6 +55,8 @@ export const DefaultBadgeSchema = z.object({
 			">=90": "success",
 			uncovered: "informational",
 		}),
+	logo: z.string().optional(),
+	style: BadgeStylesSchema.default("flat"),
 	uncoveredText: z.string().default("unknown"),
 });
 
@@ -74,83 +74,72 @@ export interface Config {
 	/**
 	 * An object containing the glob patterns to match the markdown files
 	 */
-	mdFiles: {
+	mdFiles: Record<string, {
 		/**
-		 * The glob pattern to match the markdown files
+		 * The coverage badge
 		 */
-		[key: string]: {
+		coverage: {
 			/**
-			 * The coverage badge
+			 * The label of the badge
+			 * @default "coverage"
 			 */
-			coverage: {
-				/**
-				 * The label of the badge
-				 * @default "coverage"
-				 */
-				label: string;
-			} & DefaultBadge;
+			label: string;
+		} & DefaultBadge;
+		/**
+		 * The statements badge
+		 */
+		statements: {
 			/**
-			 * The statements badge
+			 * The label of the badge
+			 * @default "statements"
 			 */
-			statements: {
-				/**
-				 * The label of the badge
-				 * @default "statements"
-				 */
-				label: string;
-			} & DefaultBadge;
+			label: string;
+		} & DefaultBadge;
+		/**
+		 * The branches badge
+		 */
+		branches: {
 			/**
-			 * The branches badge
+			 * The label of the badge
+			 * @default "branches"
 			 */
-			branches: {
-				/**
-				 * The label of the badge
-				 * @default "branches"
-				 */
-				label: string;
-			} & DefaultBadge;
+			label: string;
+		} & DefaultBadge;
+		/**
+		 * The functions badge
+		 */
+		functions: {
 			/**
-			 * The functions badge
+			 * The label of the badge
+			 * @default "functions"
 			 */
-			functions: {
-				/**
-				 * The label of the badge
-				 * @default "functions"
-				 */
-				label: string;
-			} & DefaultBadge;
+			label: string;
+		} & DefaultBadge;
+		/**
+		 * The lines badge
+		 */
+		lines: {
 			/**
-			 * The lines badge
+			 * The label of the badge
+			 * @default "lines"
 			 */
-			lines: {
-				/**
-				 * The label of the badge
-				 * @default "lines"
-				 */
-				label: string;
-			} & DefaultBadge;
-		};
-	};
+			label: string;
+		} & DefaultBadge;
+	}>;
 }
 
 export const configSchema = z.object({
-	silent: z.boolean().default(false),
 	coverageFiles: z.string().default("**/coverage-summary.json"),
 	mdFiles: z.record(
 		z.object({
-			coverage: z
-				.object({
-					label: z.string().default("coverage"),
-				})
-				.and(DefaultBadgeSchema),
-			statements: z
-				.object({
-					label: z.string().default("statements"),
-				})
-				.and(DefaultBadgeSchema),
 			branches: z
 				.object({
 					label: z.string().default("branches"),
+				})
+				.and(DefaultBadgeSchema),
+			coverage: z
+				.object({
+					label: z.string().default("coverage"),
 				})
 				.and(DefaultBadgeSchema),
 			functions: z
@@ -163,6 +152,12 @@ export const configSchema = z.object({
 					label: z.string().default("lines"),
 				})
 				.and(DefaultBadgeSchema),
-		})
+			statements: z
+				.object({
+					label: z.string().default("statements"),
+				})
+				.and(DefaultBadgeSchema),
+		}),
 	),
+	silent: z.boolean().default(false),
 });

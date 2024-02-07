@@ -1,61 +1,61 @@
 import { describe, expect, test } from "vitest";
 
-import { getRegionLanguages } from "..";
+import { getRegionLanguages } from "../index.js";
 
 describe("getRegionLanguges()", () => {
 	const langs = [
 		{
-			name: "Scots",
-			nativeName: "Scoats leid",
+			country: "United Kingdom",
+			countryCode: "gb",
+			direction: "ltr",
+			flag: {
+				emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+				flagColors: [
+					{ base10: 24_248, cmyk: [100, 56, 0, 3], hex: "#005EB8", rgb: [0, 94, 184] },
+					{ base10: 16_777_215, cmyk: [0, 0, 0, 0], hex: "#FFFFFF", rgb: [255, 255, 255] },
+				],
+				image: "https://crowdin.com/images/flags/sco.png",
+				primaryColor: { base10: 24_248, cmyk: [100, 49, 0, 28], hex: "#005EB8", rgb: [0, 94, 184] },
+			},
 			ids: {
-				locale: "sco-GB",
 				ISO_639_2: "sco",
 				ISO_639_3: "sco",
 				androidCode: "sco-rGB",
+				glottolog: "scot1243",
+				locale: "sco-GB",
 				osxCode: "sco.lproj",
 				osxLocale: "sco",
-				glottolog: "scot1243",
 			},
-			direction: "ltr",
-			country: "United Kingdom",
-			countryCode: "gb",
-			flag: {
-				image: "https://crowdin.com/images/flags/sco.png",
-				emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-				primaryColor: { hex: "#005EB8", rgb: [0, 94, 184], cmyk: [100, 49, 0, 28], base10: 24_248 },
-				flagColors: [
-					{ hex: "#005EB8", rgb: [0, 94, 184], cmyk: [100, 56, 0, 3], base10: 24_248 },
-					{ hex: "#FFFFFF", rgb: [255, 255, 255], cmyk: [0, 0, 0, 0], base10: 16_777_215 },
-				],
-			},
+			name: "Scots",
+			nativeName: "Scoats leid",
 			region: "Scotland",
 			regionCode: "sct",
 		},
 		{
-			name: "Scottish Gaelic",
-			nativeName: "Gàidhlig",
+			country: "United Kingdom",
+			countryCode: "gb",
+			direction: "ltr",
+			flag: {
+				emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+				flagColors: [
+					{ base10: 24_248, cmyk: [100, 56, 0, 3], hex: "#005EB8", rgb: [0, 94, 184] },
+					{ base10: 16_777_215, cmyk: [0, 0, 0, 0], hex: "#FFFFFF", rgb: [255, 255, 255] },
+				],
+				image: "https://crowdin.com/images/flags/gd.png",
+				primaryColor: { base10: 24_248, cmyk: [100, 49, 0, 28], hex: "#005EB8", rgb: [0, 94, 184] },
+			},
 			ids: {
-				locale: "gd-GB",
 				ISO_639_1: "gd",
 				ISO_639_2: "gla",
 				ISO_639_3: "gla",
 				androidCode: "gd-rGB",
+				glottolog: "scot1245",
+				locale: "gd-GB",
 				osxCode: "gd.lproj",
 				osxLocale: "gd",
-				glottolog: "scot1245",
 			},
-			direction: "ltr",
-			country: "United Kingdom",
-			countryCode: "gb",
-			flag: {
-				image: "https://crowdin.com/images/flags/gd.png",
-				emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-				primaryColor: { hex: "#005EB8", rgb: [0, 94, 184], cmyk: [100, 49, 0, 28], base10: 24_248 },
-				flagColors: [
-					{ hex: "#005EB8", rgb: [0, 94, 184], cmyk: [100, 56, 0, 3], base10: 24_248 },
-					{ hex: "#FFFFFF", rgb: [255, 255, 255], cmyk: [0, 0, 0, 0], base10: 16_777_215 },
-				],
-			},
+			name: "Scottish Gaelic",
+			nativeName: "Gàidhlig",
 			region: "Scotland",
 			regionCode: "sct",
 		},

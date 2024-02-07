@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-process-exit */
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
@@ -53,12 +54,12 @@ export class BadgeGenerator {
 
 		for (const location of this.coverageFileLocations) {
 			// Read the file and parse it to JSON
-			let json;
+			let json: Record<string, unknown>;
 			try {
 				const file = await readFile(location, "utf8");
-				json = JSON.parse(file);
+				json = JSON.parse(file) as Record<string, unknown>;
 			} catch (error) {
-				logger("error", `Could not parse ${location} as JSON!`, `message: ${(error as any).message}`);
+				logger("error", `Could not parse ${location} as JSON!`, `message: ${(error as Error).message}`);
 				continue;
 			}
 
@@ -66,7 +67,7 @@ export class BadgeGenerator {
 			const result = coverageSchema.safeParse(json);
 
 			if (!result.success) {
-				logger("error", `Could not parse ${location} as a valid coverage file!`, `message: ${result.error.errors[0].message}`);
+				logger("error", `Could not parse ${location} as a valid coverage file!`, `message: ${result.error.errors[0]?.message}`);
 				continue;
 			}
 
@@ -101,25 +102,25 @@ export class BadgeGenerator {
 				const fileData = await readFile(location, "utf8");
 				this.badgesPerFile[location] = this._findBadges(fileData);
 			} catch (error) {
-				logger("error", `Could not read ${location}!`, `message: ${(error as any).message}`);
+				logger("error", `Could not read ${location}!`, `message: ${(error as Error).message}`);
 			}
 		}
 
 		logger(
 			"info",
-			`Found ${Object.values(this.badgesPerFile).reduce((accumulator, current) => accumulator + Object.values(current).flat().length, 0)} badges.`
+			`Found ${Object.values(this.badgesPerFile).reduce((accumulator, current) => accumulator + Object.values(current).flat().length, 0)} badges.`,
 		);
 
 		return this;
 	}
 
 	private _findBadges(fileData: string): Record<keyof typeof COVERAGE_REPLACEMENTS, BadgeLocation[]> {
-		const badges: Record<keyof typeof COVERAGE_REPLACEMENTS, BadgeLocation[]> = {} as any;
+		const badges = {} as Record<keyof typeof COVERAGE_REPLACEMENTS, BadgeLocation[]>;
 
 		for (const [key, value] of Object.entries(COVERAGE_REPLACEMENTS)) {
 			// Find badge url's, ignore the next line because the || [] is an assertion
 			/* c8 ignore next */
-			const urlMatches = fileData.match(value.url) || ([] as string[]),
+			const urlMatches = fileData.match(value.url) ?? ([] as string[]),
 				// map the urls to the full line they are on in the file
 				urlMatchesWithLine: BadgeLocation[] = urlMatches
 					.map((url): [string, string[]] => [url, fileData.split(/\r?\n/).filter(line => line.includes(url))])
@@ -155,7 +156,8 @@ export class BadgeGenerator {
 			for (const [type, badgeLocations] of Object.entries(badges)) {
 				for (const badgeLocation of badgeLocations) {
 					// get folder path out of the replacement
-					const badgeFolder = badgeLocation.replacement.match(/\$.*\$((?:\/[\w-\d]+)*)/)?.[1] || "",
+					/* c8 ignore next */ // This is an assertion, it's not possible to test
+					const badgeFolder = badgeLocation.replacement.match(/\$.*\$((?:\/[\w-\d]+)*)/)?.[1] ?? "",
 						// get the folder in which the coverage should be from
 						coverageFolder = join(folder, badgeFolder);
 
@@ -196,7 +198,7 @@ export class BadgeGenerator {
 				.flatMap(([, coverage]) => Object.entries(coverage))
 				.filter(([location]) => location.startsWith(coverageFolder)),
 			// get coverage config where glob matches the md file
-			coverageConfig = Object.entries(activeConfig.config.mdFiles).find(([glob]) => multimatch(file, glob))?.[1];
+			coverageConfig = Object.entries(activeConfig.config.mdFiles).find(([glob]) => multimatch(file, glob).length)?.[1];
 
 		if (!coverageConfig) {
 			logger("error", `Could not find coverage config for ${file}!`);
@@ -223,7 +225,7 @@ export class BadgeGenerator {
 					/* c8 ignore next */
 					return typeof covType.pct === "number" ? covType.pct : 0;
 				}
-			})
+			}),
 		);
 	}
 
@@ -240,7 +242,7 @@ export class BadgeGenerator {
 					([badgeLocation, newBadge]): BadgeMappedToLine => ({
 						fullLine: badgeLocation.fullLine,
 						replacements: [[badgeLocation.replacement, newBadge]],
-					})
+					}),
 				),
 				// Join the badges to the same line
 				joinedBadges: BadgeMappedToLine[] = [];
@@ -248,7 +250,7 @@ export class BadgeGenerator {
 			for (const badge of badgesToFullLineAndReplacements) {
 				const existingBadge = joinedBadges.findIndex(foundBadge => foundBadge.fullLine === badge.fullLine);
 				if (existingBadge === -1) joinedBadges.push(badge);
-				else joinedBadges[existingBadge].replacements.push(...badge.replacements);
+				else joinedBadges[existingBadge]?.replacements.push(...badge.replacements);
 			}
 
 			newBadgesPerFile[file] = joinedBadges;

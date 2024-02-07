@@ -10,10 +10,10 @@ export interface CoverageData {
 }
 
 export const coverageDataSchema = z.object({
-	total: z.number(),
 	covered: z.number(),
-	skipped: z.number(),
 	pct: z.number().or(z.string()),
+	skipped: z.number(),
+	total: z.number(),
 });
 
 export interface CoverageFileData {
@@ -24,10 +24,10 @@ export interface CoverageFileData {
 }
 
 export const coverageFileDataSchema = z.object({
+	branches: coverageDataSchema,
+	functions: coverageDataSchema,
 	lines: coverageDataSchema,
 	statements: coverageDataSchema,
-	functions: coverageDataSchema,
-	branches: coverageDataSchema,
 });
 
 export interface Coverage {
@@ -38,5 +38,5 @@ export interface Coverage {
 export const coverageSchema = z.record(coverageFileDataSchema).and(
 	z.object({
 		total: coverageFileDataSchema,
-	})
+	}),
 );

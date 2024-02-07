@@ -1,7 +1,6 @@
-/dist
-/node_modules
-/lib
-coverage
-*.json
-*.yml
+*.js
+*.d.ts
 *.yaml
+*.yml
+*.cjs
+*.json

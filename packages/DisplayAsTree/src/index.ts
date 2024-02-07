@@ -1,5 +1,3 @@
-import "source-map-support/register.js";
-
 export class Tree {
 	/**
 	 * Name of the tree.
@@ -27,7 +25,7 @@ export class Tree {
 			treeChar?: string;
 			lineChar?: string;
 			lastChar?: string;
-		}
+		},
 	) {
 		this.name = name;
 		if (options?.headChar) this.headChar = options.headChar;
@@ -44,7 +42,7 @@ export class Tree {
 	 *
 	 * @param branches Branches to add to the tree.
 	 */
-	addBranch(branches: Branch[] | string[]) {
+	addBranch(branches: (Branch | string)[]) {
 		for (const branch of branches) {
 			if (typeof branch === "string") this.branches.push(new Branch(branch));
 			else this.branches.push(branch);
@@ -63,6 +61,8 @@ export class Tree {
 		for (let index = 0; index < length; index++) {
 			const branch = branches[index],
 				isLast = index === length - 1;
+			/* c8 ignore next */
+			if (!branch) continue;
 
 			let char: string | undefined = "";
 
@@ -70,10 +70,10 @@ export class Tree {
 
 			output = [
 				...output,
-				...this.getData(branch.name, branch.branches).map(s => {
+				...this.getData(branch.name, branch.branches).map((s) => {
 					const c = char;
 					char = undefined;
-					return (c === undefined ? (isLast ? this.getSpacesOfLength(this.treeChar.length) : this.lineChar) : c) + s;
+					return (c ?? (isLast ? this.getSpacesOfLength(this.treeChar.length) : this.lineChar)) + s;
 				}),
 			];
 		}
@@ -100,7 +100,7 @@ export class Tree {
 	 */
 	log() {
 		// eslint-disable-next-line no-console
-		return console.log(this.toString());
+		console.log(this.toString());
 	}
 }
 
@@ -128,7 +128,7 @@ export class Branch {
 	 *
 	 * @param branches Sections to add to the section.
 	 */
-	addBranch(branches: Branch[] | string[]) {
+	addBranch(branches: (Branch | string)[]) {
 		for (const branch of branches) {
 			if (typeof branch === "string") this.branches.push(new Branch(branch));
 			else this.branches.push(branch);

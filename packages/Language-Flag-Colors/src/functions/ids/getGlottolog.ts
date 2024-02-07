@@ -11,9 +11,9 @@ export function getGlottolog(lang: string, url: true): `https://glottolog.org/re
 export function getGlottolog(lang: string, url = false) {
 	const language = findLanguage(lang);
 	return language
-		? url && language.ids.glottolog
-			? `https://glottolog.org/resource/languoid/id/${language.ids.glottolog}`
-			: // eslint-disable-next-line unicorn/no-null
-			  language.ids.glottolog ?? null
+		? (url && language.ids.glottolog
+				? `https://glottolog.org/resource/languoid/id/${language.ids.glottolog}`
+				// eslint-disable-next-line unicorn/no-null
+				: language.ids.glottolog ?? null)
 		: undefined;
 }

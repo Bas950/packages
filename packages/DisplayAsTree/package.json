@@ -3,15 +3,9 @@
 	"description": "Simple way to display data as a tree structure.",
 	"version": "2.1.0",
 	"license": "MPL-2.0",
-	"main": "lib/cjs/index.js",
-	"module": "lib/mjs/index.js",
-	"types": "lib/mjs/index.d.ts",
-	"exports": {
-		".": {
-			"import": "./lib/mjs/index.js",
-			"require": "./lib/cjs/index.js"
-		}
-	},
+	"type": "module",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
 	"files": [
 		"lib"
 	],
@@ -40,23 +34,14 @@
 		"list"
 	],
 	"scripts": {
-		"dev": "tsc -p tsconfig.json -w",
-		"build": "rimraf lib/* && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && ./fixup",
-		"test": "vitest --run",
-		"test:watch": "vitest --ui --coverage",
-		"test:ci": "vitest --run --coverage",
-		"lint": "eslint --fix --ext .ts ./ && prettier -w .",
-		"lint:ci": "eslint --ext .ts ./ && prettier --check ."
-	},
-	"dependencies": {
-		"source-map-support": "^0.5.21"
+		"test": "vitest --run --coverage",
+		"test:ui": "vitest --ui --coverage"
 	},
 	"devDependencies": {
-		"typescript": "^5.0.4"
+		"typescript": "^5.3.3"
 	},
-	"packageManager": "pnpm@8.5.1",
+	"packageManager": "pnpm@8.14.1",
 	"engines": {
-		"node": ">=16",
-		"pnpm": ">=7.17.0"
+		"node": ">=16"
 	}
 }

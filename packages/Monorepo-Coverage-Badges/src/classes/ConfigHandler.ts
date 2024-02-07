@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-process-exit */
 import fs from "node:fs";
 import { join } from "node:path";
 
@@ -18,6 +19,9 @@ export class ConfigHandler {
 
 	private get _cosmi() {
 		return cosmiconfig(this.moduleName, {
+			loaders: {
+				".ts": TypeScriptLoader(),
+			},
 			searchPlaces: [
 				"package.json",
 				`.${this.moduleName}rc`,
@@ -31,9 +35,6 @@ export class ConfigHandler {
 				`${this.moduleName}.config.ts`,
 				`${this.moduleName}.config.cjs`,
 			],
-			loaders: {
-				".ts": TypeScriptLoader(),
-			},
 		});
 	}
 
@@ -74,7 +75,7 @@ export class ConfigHandler {
 		const parseResult = configSchema.safeParse(config.config);
 		if (!parseResult.success) {
 			const error = parseResult.error.errors[0];
-			logger("error", "Could not parse configuration file, please check your syntax!", `message: ${error.message}`, `location: ${error.path.join(" -> ")}`);
+			logger("error", "Could not parse configuration file, please check your syntax!", `message: ${error?.message}`, `location: ${error?.path.join(" -> ")}`);
 			process.exit(1);
 		}
 		logger("info", "Config file loaded");
@@ -104,7 +105,7 @@ export class ConfigHandler {
 			/* c8 ignore next 6 */
 			// This is an assertion, it's not possible to test
 		} catch (error) {
-			logger("error", "Could not initialize config file", (error as any).message);
+			logger("error", "Could not initialize config file", (error as Error).message);
 			process.exit(1);
 		}
 	}

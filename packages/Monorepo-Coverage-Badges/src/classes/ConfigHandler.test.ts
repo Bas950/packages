@@ -20,7 +20,7 @@ describe("ConfigHandler", () => {
 	});
 
 	vitest.mock("fs", async () => {
-		const actual: Record<string, any> = await vitest.importActual("fs");
+		const actual: Record<string, unknown> = await vitest.importActual("fs");
 		return {
 			...actual,
 			default: {
@@ -31,7 +31,7 @@ describe("ConfigHandler", () => {
 
 	test("loadConfig()", async () => {
 		const spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			}),
 			writeFileSyncSpy = vitest.spyOn(fs, "writeFileSync");
@@ -123,7 +123,7 @@ describe("ConfigHandler", () => {
 
 	test("initConfig()", async () => {
 		const spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			}),
 			writeFileSyncSpy = vitest.spyOn(fs, "writeFileSync");

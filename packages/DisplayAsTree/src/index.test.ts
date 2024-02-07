@@ -12,9 +12,9 @@ describe("Tree", () => {
 
 		const tree2 = new Tree("root", {
 			headChar: "🌲 ",
-			treeChar: "🌳 ",
-			lineChar: "🌴 ",
 			lastChar: "🌱 ",
+			lineChar: "🌴 ",
+			treeChar: "🌳 ",
 		});
 		expect(tree2.toString()).toBe("🌲 root");
 
@@ -22,10 +22,10 @@ describe("Tree", () => {
 			() =>
 				new Tree("root", {
 					headChar: "🌲 ",
-					treeChar: "🌳  ",
-					lineChar: "🌴 ",
 					lastChar: "🌱  ",
-				})
+					lineChar: "🌴 ",
+					treeChar: "🌳  ",
+				}),
 		).toThrowError("treeChar, midChar, and endChar must have the same length.");
 	});
 
@@ -33,8 +33,8 @@ describe("Tree", () => {
 		const tree = new Tree("root");
 		tree.addBranch(["branch1", "branch2"]);
 		expect(tree.branches).toEqual([
-			{ name: "branch1", branches: [] },
-			{ name: "branch2", branches: [] },
+			{ branches: [], name: "branch1" },
+			{ branches: [], name: "branch2" },
 		]);
 		expect(tree.toString()).toBe(`● root
 ├─ branch1
@@ -43,13 +43,13 @@ describe("Tree", () => {
 		const tree2 = new Tree("root");
 		tree2.addBranch([new Branch("branch1"), new Branch("branch2").addBranch([new Branch("branch3"), new Branch("branch4")])]);
 		expect(tree2.branches).toEqual([
-			{ name: "branch1", branches: [] },
+			{ branches: [], name: "branch1" },
 			{
-				name: "branch2",
 				branches: [
-					{ name: "branch3", branches: [] },
-					{ name: "branch4", branches: [] },
+					{ branches: [], name: "branch3" },
+					{ branches: [], name: "branch4" },
 				],
+				name: "branch2",
 			},
 		]);
 		expect(tree2.toString()).toBe(`● root
@@ -65,23 +65,23 @@ describe("Tree", () => {
 			new Branch("branch6"),
 		]);
 		expect(tree3.branches).toEqual([
-			{ name: "branch1", branches: [] },
+			{ branches: [], name: "branch1" },
 			{
-				name: "branch2",
 				branches: [
-					{ name: "branch3", branches: [] },
+					{ branches: [], name: "branch3" },
 					{
-						name: "branch4",
 						branches: [
 							{
-								name: "branch5",
 								branches: [],
+								name: "branch5",
 							},
 						],
+						name: "branch4",
 					},
 				],
+				name: "branch2",
 			},
-			{ name: "branch6", branches: [] },
+			{ branches: [], name: "branch6" },
 		]);
 		expect(tree3.toString()).toBe(`● root
 ├─ branch1
@@ -142,20 +142,20 @@ describe("Branch", () => {
 		const branch = new Branch("branch");
 		branch.addBranch(["branch1", "branch2"]);
 		expect(branch.branches).toEqual([
-			{ name: "branch1", branches: [] },
-			{ name: "branch2", branches: [] },
+			{ branches: [], name: "branch1" },
+			{ branches: [], name: "branch2" },
 		]);
 
 		const branch2 = new Branch("branch");
 		branch2.addBranch([new Branch("branch1"), new Branch("branch2").addBranch([new Branch("branch3"), new Branch("branch4")])]);
 		expect(branch2.branches).toEqual([
-			{ name: "branch1", branches: [] },
+			{ branches: [], name: "branch1" },
 			{
-				name: "branch2",
 				branches: [
-					{ name: "branch3", branches: [] },
-					{ name: "branch4", branches: [] },
+					{ branches: [], name: "branch3" },
+					{ branches: [], name: "branch4" },
 				],
+				name: "branch2",
 			},
 		]);
 	});

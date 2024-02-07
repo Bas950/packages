@@ -5,7 +5,7 @@ export class Badge {
 
 	generateBadge(coverage: number, placeholder: string): string {
 		return `https://img.shields.io/badge/${this._getLabel()}-${this._getCoverageString(coverage)}-${this._getColor(
-			coverage
+			coverage,
 		)}.svg?placeholder=${this._getPlaceholder(placeholder)}${this._getLogo()}&style=${this.config.style}`;
 	}
 
@@ -22,12 +22,18 @@ export class Badge {
 				value = key.match(/(?<value>\d+)/)?.groups?.value;
 			if (!operator || !value) continue;
 
-			if (operator === "<" && coverage < Number(value)) return this.config.color[key];
-			if (operator === ">" && coverage > Number(value)) return this.config.color[key];
-			if (operator === "==" && coverage === Number(value)) return this.config.color[key];
-			if (operator === "!=" && coverage !== Number(value)) return this.config.color[key];
-			if (operator === "<=" && coverage <= Number(value)) return this.config.color[key];
-			if (operator === ">=" && coverage >= Number(value)) return this.config.color[key];
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if (operator === "<" && coverage < Number(value)) return this.config.color[key]!;
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if (operator === ">" && coverage > Number(value)) return this.config.color[key]!;
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if (operator === "==" && coverage === Number(value)) return this.config.color[key]!;
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if (operator === "!=" && coverage !== Number(value)) return this.config.color[key]!;
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if (operator === "<=" && coverage <= Number(value)) return this.config.color[key]!;
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			if (operator === ">=" && coverage >= Number(value)) return this.config.color[key]!;
 		}
 
 		return this.config.color.uncovered;

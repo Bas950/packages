@@ -3,15 +3,9 @@
 	"version": "2.3.0",
 	"description": "A package with the color of every language's flag",
 	"license": "MPL-2.0",
-	"main": "lib/cjs/index.js",
-	"module": "lib/mjs/index.js",
-	"types": "lib/mjs/index.d.ts",
-	"exports": {
-		".": {
-			"import": "./lib/mjs/index.js",
-			"require": "./lib/cjs/index.js"
-		}
-	},
+	"type": "module",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
 	"files": [
 		"lib"
 	],
@@ -40,19 +34,14 @@
 		"glottolog"
 	],
 	"scripts": {
-		"dev": "tsc -p tsconfig.json -w",
-		"build": "rimraf lib/* && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && ./fixup",
-		"test": "vitest --run",
-		"test:watch": "vitest --ui --coverage",
-		"test:ci": "vitest --run --coverage",
-		"lint": "eslint --fix --ext .ts ./ && prettier -w .",
-		"lint:ci": "eslint --ext .ts ./ && prettier --check ."
+		"test": "vitest --run --coverage",
+		"test:ui": "vitest --ui --coverage"
 	},
 	"devDependencies": {
-		"got": "^12.6.0",
-		"typescript": "^5.0.4"
+		"got": "^14.0.0",
+		"typescript": "^5.3.3"
 	},
-	"packageManager": "pnpm@8.5.1",
+	"packageManager": "pnpm@8.14.1",
 	"engines": {
 		"node": ">=16"
 	}

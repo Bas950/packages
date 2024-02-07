@@ -1,0 +1,8 @@
+{
+	"files": [],
+	"references": [
+		{ "path": "./packages/DisplayAsTree/tsconfig.build.json" },
+		{ "path": "./packages/Monorepo-Coverage-Badges/tsconfig.build.json" },
+		{ "path": "./packages/Language-Flag-Colors/tsconfig.build.json" }
+	]
+}

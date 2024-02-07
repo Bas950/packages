@@ -7,9 +7,9 @@ import findLanguage from "../findLanguage.js";
  * @returns The flag object of the language, or `undefined` if it is not found
  */
 export function getFlag(country: string) {
-	const language =
-		languages.find(l => l.country.toLowerCase() === country.toLowerCase()) ??
-		languages.find(l => l.countryCode.toLowerCase() === country.toLowerCase()) ??
-		findLanguage(country);
+	const language
+		= languages.find(l => l.country.toLowerCase() === country.toLowerCase())
+		?? languages.find(l => l.countryCode.toLowerCase() === country.toLowerCase())
+		?? findLanguage(country);
 	return language?.flag;
 }

@@ -1,0 +1,10 @@
+{
+	"extends": "../../tsconfig.json",
+	"exclude": ["**/*/lib/**/*", "**/*/bin/**/*", "**/*/__mocks__/**/*", "**/*/__tests__/**/*", "**/vitest.config.ts", "**/*.test.ts"],
+	"include": ["src"],
+	"compilerOptions": {
+		"composite": true,
+		"rootDir": "src",
+		"outDir": "bin"
+	}
+}

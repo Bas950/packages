@@ -1,10 +1,7 @@
-node_modules
-dist
-lib
-.github
-.*
-pnpm*
-*.md
 *.js
 *.d.ts
-coverage
+*.yaml
+*.yml
+*.cjs
+*.ts
+*.md

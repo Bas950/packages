@@ -14,7 +14,7 @@ describe("logger", () => {
 		};
 	});
 
-	test('logger("info", ...)', () => {
+	test("logger(\"info\", ...)", () => {
 		const spy = vitest.spyOn(global.console, "log");
 
 		logger("info", "test");
@@ -31,7 +31,7 @@ describe("logger", () => {
 		spy.mockRestore();
 	});
 
-	test('logger("error", ...)', () => {
+	test("logger(\"error\", ...)", () => {
 		const spy = vitest.spyOn(global.console, "log");
 
 		logger("error", "test");
@@ -48,7 +48,7 @@ describe("logger", () => {
 		spy.mockRestore();
 	});
 
-	test('logger("warn", ...)', () => {
+	test("logger(\"warn\", ...)", () => {
 		const spy = vitest.spyOn(global.console, "log");
 
 		logger("warn", "test");

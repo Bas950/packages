@@ -1,8 +1,0 @@
-/dist
-/node_modules
-/lib
-/bin
-coverage
-*.json
-*.yml
-*.yaml

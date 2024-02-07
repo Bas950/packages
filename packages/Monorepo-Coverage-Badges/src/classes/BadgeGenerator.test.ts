@@ -19,9 +19,9 @@ beforeAll(async () => {
 	// Read coverage-summary-template.json file
 	const coverageSummaryTemplate = await readFile(join(directoryName, "src", "classes", "__mocks__", "coverage", "coverage-summary-template.json"), "utf8"),
 		// Parse coverage-summary-template.json file
-		coverageSummaryTemplateParsed = JSON.parse(coverageSummaryTemplate),
+		coverageSummaryTemplateParsed = JSON.parse(coverageSummaryTemplate) as Record<string, unknown>,
 		// Create a new object to store the new data
-		coverageSummaryTemplateParsedNew = {};
+		coverageSummaryTemplateParsedNew: Record<string, unknown> = {};
 	// Go through each key in the coverageSummaryTemplateParsed object and see if it has "\\"
 	for (const key in coverageSummaryTemplateParsed) {
 		if (key.includes("\\")) {
@@ -35,12 +35,12 @@ beforeAll(async () => {
 	// Write the new data to the coverage-summary.json file
 	writeFileSync(
 		join(directoryName, "src", "classes", "__mocks__", "coverage", "coverage-summary.json"),
-		JSON.stringify(coverageSummaryTemplateParsedNew, undefined, 2)
+		JSON.stringify(coverageSummaryTemplateParsedNew, undefined, 2),
 	);
 });
 
 afterAll(() => {
-	//Delete the coverage-summary.json file
+	// Delete the coverage-summary.json file
 	rmSync(join(directoryName, "src", "classes", "__mocks__", "coverage", "coverage-summary.json"));
 });
 
@@ -56,7 +56,7 @@ describe("BadgeGenerator", () => {
 	});
 
 	vitest.mock("fs/promises", async () => {
-		const actual: Record<string, any> = await vitest.importActual("fs/promises");
+		const actual: Record<string, unknown> = await vitest.importActual("fs/promises");
 		return {
 			...actual,
 			writeFile: vitest.fn().mockImplementation(() => Promise.resolve()),
@@ -68,7 +68,7 @@ describe("BadgeGenerator", () => {
 
 		const badgeGenerator = new BadgeGenerator(),
 			spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			});
 
@@ -80,9 +80,9 @@ describe("BadgeGenerator", () => {
 
 		// Set coverageFiles to a non-existent file
 		activeConfig.config = {
-			silent: false,
 			coverageFiles: "**/coverage-fake.json",
 			mdFiles: {},
+			silent: false,
 		};
 
 		spy.mockClear();
@@ -103,7 +103,7 @@ describe("BadgeGenerator", () => {
 
 		const badgeGenerator = new BadgeGenerator(),
 			spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			});
 
@@ -117,9 +117,9 @@ describe("BadgeGenerator", () => {
 
 		// Set coverageFiles to a non-existent file, and reset coverageFileLocations & coverageFiles
 		activeConfig.config = {
-			silent: false,
 			coverageFiles: "**/coverage-fake.json",
 			mdFiles: {},
+			silent: false,
 		};
 		badgeGenerator.coverageFileLocations = [];
 		badgeGenerator.coverageFiles = {};
@@ -141,7 +141,7 @@ describe("BadgeGenerator", () => {
 		expect(badgeGenerator.coverageFiles).toStrictEqual({});
 		expect(spy).toHaveBeenCalledTimes(3);
 		expect(spy).toHaveBeenCalledWith(`<red>[ERROR] Could not parse ${join("src", "classes", "__mocks__", "coverage-fake", "coverage-summary.json")} as JSON!`);
-		expect((spy.mock.calls?.[1]?.[0] as string | undefined)?.startsWith("<red>[ERROR] message: ENOENT: no such file or directory, open")).toBe(true);
+		expect((spy.mock.calls[1]?.[0] as string | undefined)?.startsWith("<red>[ERROR] message: ENOENT: no such file or directory, open")).toBe(true);
 		expect(spy).toHaveBeenCalledWith("<blue>[INFO] Parsed 0 coverage files.");
 
 		// Reset coverageFiles, and set coverageFileLocations to an invalid file
@@ -154,7 +154,7 @@ describe("BadgeGenerator", () => {
 		expect(badgeGenerator.coverageFiles).toStrictEqual({});
 		expect(spy).toHaveBeenCalledTimes(3);
 		expect(spy).toHaveBeenCalledWith(
-			`<red>[ERROR] Could not parse ${join("src", "classes", "__mocks__", "coverage", "invalid-summary.json")} as a valid coverage file!`
+			`<red>[ERROR] Could not parse ${join("src", "classes", "__mocks__", "coverage", "invalid-summary.json")} as a valid coverage file!`,
 		);
 		expect(spy).toHaveBeenCalledWith("<red>[ERROR] message: Required");
 		expect(spy).toHaveBeenCalledWith("<blue>[INFO] Parsed 0 coverage files.");
@@ -168,12 +168,13 @@ describe("BadgeGenerator", () => {
 	test("findFiles()", async () => {
 		activeConfig.config = DEFAULT_CONFIG;
 		activeConfig.config.mdFiles = {
-			"**/__mocks__/**/*.md": DEFAULT_CONFIG.mdFiles["**/*.md"],
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			"**/__mocks__/**/*.md": DEFAULT_CONFIG.mdFiles["**/*.md"]!,
 		};
 
 		const badgeGenerator = new BadgeGenerator(),
 			spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			});
 
@@ -187,9 +188,9 @@ describe("BadgeGenerator", () => {
 
 		// Reset set coverageFiles to a non-existent file, and reset fileLocations
 		activeConfig.config = {
-			silent: false,
 			coverageFiles: "**/coverage-fake.json",
 			mdFiles: {},
+			silent: false,
 		};
 		badgeGenerator.fileLocations = [];
 
@@ -231,7 +232,7 @@ describe("BadgeGenerator", () => {
 
 		expect(spy).toHaveBeenCalledTimes(3);
 		expect(spy).toHaveBeenCalledWith(`<red>[ERROR] Could not read ${join("src", "classes", "__mocks__", "README-fake.md")}!`);
-		expect((spy.mock.calls?.[1]?.[0] as string | undefined)?.startsWith("<red>[ERROR] message: ENOENT: no such file or directory, open")).toBe(true);
+		expect((spy.mock.calls[1]?.[0] as string | undefined)?.startsWith("<red>[ERROR] message: ENOENT: no such file or directory, open")).toBe(true);
 		expect(spy).toHaveBeenCalledWith("<blue>[INFO] Found 0 badges.");
 
 		spy.mockClear();
@@ -252,7 +253,7 @@ describe("BadgeGenerator", () => {
 
 		const badgeGenerator = new BadgeGenerator(),
 			spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			});
 
@@ -315,16 +316,16 @@ describe("BadgeGenerator", () => {
 
 		// Set the config to not include the README.md file
 		activeConfig.config = {
-			silent: false,
 			coverageFiles: "**/coverage-fake.json",
 			mdFiles: {},
+			silent: false,
 		};
 
 		expect(() => badgeGenerator.generateBadges()).toThrowError();
 
 		expect(spy).toHaveBeenCalledTimes(1);
 		expect(spy).toHaveBeenCalledWith(
-			`<red>[ERROR] Could not find coverage config for ${join(directoryName, "src", "classes", "__mocks__", "test_README.md")}!`
+			`<red>[ERROR] Could not find coverage config for ${join(directoryName, "src", "classes", "__mocks__", "test_README.md")}!`,
 		);
 		expect(processExitSpy).toHaveBeenCalledTimes(1);
 
@@ -334,7 +335,7 @@ describe("BadgeGenerator", () => {
 	test("updateFiles()", async () => {
 		const badgeGenerator = new BadgeGenerator(),
 			spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			});
 
@@ -353,14 +354,14 @@ describe("BadgeGenerator", () => {
 
 		const badgeGenerator = new BadgeGenerator(),
 			spy = vitest.spyOn(global.console, "log"),
-			processExitSpy = vitest.spyOn(process, "exit").mockImplementation(number => {
+			processExitSpy = vitest.spyOn(process, "exit").mockImplementation((number) => {
 				throw new Error(`process.exit: ${number}`);
 			});
 
 		expect(() => badgeGenerator.logSuccess()).toThrowError();
 
 		expect(spy).toHaveBeenCalledTimes(2);
-		expect((spy.mock.calls[0][0] as string).startsWith("<blue>[INFO] Successfully updated the badges! 🎉")).toBe(true);
+		expect((spy.mock.calls[0]?.[0] as string).startsWith("<blue>[INFO] Successfully updated the badges! 🎉")).toBe(true);
 		expect(spy).toHaveBeenCalledWith("<blue>[INFO] You can now commit the changes.");
 
 		expect(processExitSpy).toHaveBeenCalledTimes(1);

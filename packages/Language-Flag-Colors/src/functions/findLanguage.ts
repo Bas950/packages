@@ -8,15 +8,15 @@ import languages from "../languages.js";
  */
 export default function findLanguage(lang: string) {
 	return (
-		languages.find(l => l.ids.locale.toLowerCase() === lang.toLowerCase()) ??
-		languages.find(l => l.ids.ISO_639_1 === lang.toLowerCase()) ??
-		languages.find(l => l.ids.ISO_639_2 === lang.toLowerCase()) ??
-		languages.find(l => l.ids.ISO_639_3 === lang.toLowerCase()) ??
-		languages.find(l => l.ids.osxLocale.toLowerCase() === lang.toLowerCase()) ??
-		languages.find(l => l.ids.osxCode.toLowerCase() === lang.toLowerCase()) ??
-		languages.find(l => l.ids.androidCode.toLowerCase() === lang.toLowerCase()) ??
-		languages.find(l => l.ids.locale.toLowerCase().includes(lang.toLowerCase())) ??
-		languages.find(l => l.name.toLowerCase() === lang.toLowerCase()) ??
-		languages.find(l => l.name.toLowerCase().includes(lang.toLowerCase()))
+		languages.find(l => l.ids.locale.toLowerCase() === lang.toLowerCase())
+		?? languages.find(l => l.ids.ISO_639_1 === lang.toLowerCase())
+		?? languages.find(l => l.ids.ISO_639_2 === lang.toLowerCase())
+		?? languages.find(l => l.ids.ISO_639_3 === lang.toLowerCase())
+		?? languages.find(l => l.ids.osxLocale.toLowerCase() === lang.toLowerCase())
+		?? languages.find(l => l.ids.osxCode.toLowerCase() === lang.toLowerCase())
+		?? languages.find(l => l.ids.androidCode.toLowerCase() === lang.toLowerCase())
+		?? languages.find(l => l.ids.locale.toLowerCase().includes(lang.toLowerCase()))
+		?? languages.find(l => l.name.toLowerCase() === lang.toLowerCase())
+		?? languages.find(l => l.name.toLowerCase().includes(lang.toLowerCase()))
 	);
 }
