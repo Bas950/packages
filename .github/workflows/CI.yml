@@ -1,24 +1,66 @@
 name: Ecosystem
 on: [push]
 jobs:
-  "DisplayAsTree":
-    name: 'DisplayAsTree'
-    uses: ./.github/workflows/package.yml
-    with:
-      package: 'displayastree'
-  "Language-Flag-Colors":
-    name: 'Language-Flag-Colors'
-    uses: ./.github/workflows/package.yml
-    with:
-      package: 'language-flag-colors'
-  "Monorepo-Coverage-Badges":
-    name: 'Monorepo-Coverage-Badges'
-    uses: ./.github/workflows/package.yml
-    with:
-      package: 'monorepo-coverage-badges'
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+
+      - name: Run lint
+        run: pnpm lint
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+
+      - name: Run build
+        run: pnpm build
+
+  test:
+    needs: build
+    name: Test Node-${{matrix.node}}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["16", "18", "20", "current", "latest"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepareEnvironment
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Run build
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test:ci
+
+      - name: Upload coverage
+        if: ${{matrix.node == 'current'}}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Coverage
+          path: packages/*/coverage/coverage-summary.json
+          #if-no-files-found: error
+          retention-days: 1
   coverage:
     name: Coverage
-    needs: [DisplayAsTree, Language-Flag-Colors, Monorepo-Coverage-Badges]
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -33,13 +75,13 @@ jobs:
           name: Coverage
 
       - name: Build badges package
-        run: pnpm build --filter monorepo-coverage-badges && pnpm i
+        run: pnpm build && pnpm i
 
       - name: Check badges
         run: pnpm badges:ci
   changesets:
     name: Publish
-    needs: coverage
+    needs: [coverage, test, build, lint]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
