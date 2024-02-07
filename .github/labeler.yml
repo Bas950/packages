@@ -19,5 +19,7 @@ test:
   - any-glob-to-any-file: ['**/__mocks__/**', '**/*.test.ts']
 
 documentation:
-- changed-files:
-  - any-glob-to-any-file: '**/*.md'
+- all:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.md'
+    - all-globs-to-all-files: '!.changeset/*'
