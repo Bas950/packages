@@ -1,21 +1,23 @@
 'repo maintenance':
-- '*'
+- changed-files:
+  - any-glob-to-any-file: '*'
 
 'DisplayAsTree':
-- packages/DisplayAsTree/*
-- packages/DisplayAsTree/**/*
+- changed-files:
+  - any-glob-to-any-file: 'packages/DisplayAsTree/**'
 
 'Language-Flag-Colors':
-- packages/Language-Flag-Colors/*
-- packages/Language-Flag-Colors/**/*
+- changed-files:
+  - any-glob-to-any-file: 'packages/Language-Flag-Colors/**'
 
 'Monorepo-Coverage-Badges':
-- packages/Monorepo-Coverage-Badges/*
-- packages/Monorepo-Coverage-Badges/**/*
+- changed-files:
+  - any-glob-to-any-file: 'packages/Monorepo-Coverage-Badges/**'
 
 test:
-- '**/src/**/*.test.ts'
-- '**/__mocks__/**/*'
+- changed-files:
+  - any-glob-to-any-file: ['**/__mocks__/**', '**/*.test.ts']
 
 documentation:
-- '**/*.md'
+- changed-files:
+  - any-glob-to-any-file: '**/*.md'
