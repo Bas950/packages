@@ -44,7 +44,7 @@
 		"@recodive/eslint-config": "^1.6.0",
 		"@rushstack/eslint-patch": "^1.7.2",
 		"@typescript-eslint/eslint-plugin": "^7.0.0",
-		"@typescript-eslint/parser": "^6.21.0",
+		"@typescript-eslint/parser": "^7.0.0",
 		"@vitest/coverage-v8": "^1.2.2",
 		"@vitest/ui": "^1.2.2",
 		"commitlint": "^18.6.0",
