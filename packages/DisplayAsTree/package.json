@@ -1,7 +1,7 @@
 {
 	"name": "displayastree",
 	"description": "Simple way to display data as a tree structure.",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"license": "MPL-2.0",
 	"type": "module",
 	"main": "lib/index.js",

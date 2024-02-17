@@ -1,6 +1,6 @@
 {
 	"name": "monorepo-coverage-badges",
-	"version": "1.0.3",
+	"version": "2.0.0",
 	"description": "Generate coverage badges for monorepos",
 	"type": "module",
 	"exports": "./bin/index.js",
