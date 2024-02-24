@@ -2050,7 +2050,7 @@ const languages: Language[] = [
 	},
 	{
 		country: "Japan",
-		countryCode: "ja",
+		countryCode: "jp",
 		direction: "ltr",
 		flag: {
 			emoji: "🇯🇵",
@@ -3768,7 +3768,7 @@ const languages: Language[] = [
 	},
 	{
 		country: "Japan",
-		countryCode: "ja",
+		countryCode: "jp",
 		direction: "ltr",
 		flag: {
 			emoji: "🇯🇵",
