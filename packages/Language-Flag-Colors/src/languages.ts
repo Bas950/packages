@@ -767,7 +767,7 @@ const languages: Language[] = [
 	},
 	{
 		country: "Bangladesh",
-		countryCode: "bn",
+		countryCode: "bd",
 		direction: "ltr",
 		flag: {
 			emoji: "🇧🇩",
@@ -2050,7 +2050,7 @@ const languages: Language[] = [
 	},
 	{
 		country: "Japan",
-		countryCode: "ja",
+		countryCode: "jp",
 		direction: "ltr",
 		flag: {
 			emoji: "🇯🇵",
@@ -3768,7 +3768,7 @@ const languages: Language[] = [
 	},
 	{
 		country: "Japan",
-		countryCode: "ja",
+		countryCode: "jp",
 		direction: "ltr",
 		flag: {
 			emoji: "🇯🇵",
