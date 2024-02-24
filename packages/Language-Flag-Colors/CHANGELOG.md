@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- f5f7181: fix the country code (ISO 3166-1) of Japan and Bangladesh
+
 ## 3.0.0
 
 ### Major Changes
