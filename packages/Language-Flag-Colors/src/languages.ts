@@ -767,7 +767,7 @@ const languages: Language[] = [
 	},
 	{
 		country: "Bangladesh",
-		countryCode: "bn",
+		countryCode: "bd",
 		direction: "ltr",
 		flag: {
 			emoji: "🇧🇩",
