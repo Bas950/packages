@@ -13,7 +13,7 @@ importers:
         version: 2.27.1
       '@recodive/configs':
         specifier: ^1.6.0
-        version: 1.7.6(@commitlint/lint@17.8.1)(@types/node@20.11.24)(typescript@5.3.3)
+        version: 1.8.2(@commitlint/lint@17.8.1)(@types/node@20.11.24)(typescript@5.3.3)
       '@recodive/eslint-config':
         specifier: ^1.6.0
         version: 1.7.6(@rushstack/eslint-patch@1.7.2)(eslint@8.57.0)
@@ -1107,8 +1107,8 @@ packages:
     resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
     dev: true
 
-  /@recodive/configs@1.7.6(@commitlint/lint@17.8.1)(@types/node@20.11.24)(typescript@5.3.3):
-    resolution: {integrity: sha512-oTWimUlx92ZaRhwadp/zKx/bAZ+a57ztmbIz7bmPzvt2qlRGlaLTBdOppLQPWV0AjFBcOpxnxUzvgUJgA/Krrg==}
+  /@recodive/configs@1.8.2(@commitlint/lint@17.8.1)(@types/node@20.11.24)(typescript@5.3.3):
+    resolution: {integrity: sha512-yvzaymETK1ztkUJBNnAoHdYZXS3NuQTLP38nNFhV+96TZ5Hmgeqa9chuCAqv/Eqey/Ll+9/OFwq3pGZxI7+1Lg==}
     dependencies:
       commitlint: 18.6.1(@types/node@20.11.24)(typescript@5.3.3)
       commitlint-plugin-function-rules: 2.0.2(@commitlint/lint@17.8.1)
