@@ -16,7 +16,7 @@ importers:
         version: 1.8.4(@commitlint/lint@17.8.1)(@types/node@20.11.25)(typescript@5.4.2)
       '@recodive/eslint-config':
         specifier: ^1.6.0
-        version: 1.8.2(@rushstack/eslint-patch@1.7.2)(eslint@8.57.0)(typescript@5.4.2)
+        version: 1.8.4(@rushstack/eslint-patch@1.7.2)(eslint@8.57.0)(typescript@5.4.2)
       '@rushstack/eslint-patch':
         specifier: ^1.7.2
         version: 1.7.2
@@ -1119,8 +1119,8 @@ packages:
       - typescript
     dev: true
 
-  /@recodive/eslint-config@1.8.2(@rushstack/eslint-patch@1.7.2)(eslint@8.57.0)(typescript@5.4.2):
-    resolution: {integrity: sha512-CcZRg/12VIH4v+dMpiGRgqyygM4gL1A+91d6Yvm7+mD5307PGAOgJ0UYjvKouxjZ3MqFZtA6cfJmXzCczRCp3A==}
+  /@recodive/eslint-config@1.8.4(@rushstack/eslint-patch@1.7.2)(eslint@8.57.0)(typescript@5.4.2):
+    resolution: {integrity: sha512-FmVYcwd13lvVs9FzC4A6J5qjHeF31JltyGDxYpEOLN5swL1dlz+wF/WUu0MNgghpTXqgs+V7nFNGIjZcTeWioQ==}
     peerDependencies:
       '@rushstack/eslint-patch': ^1.2.0
       eslint: '>= 8.38.0'
@@ -1552,7 +1552,7 @@ packages:
       is-glob: 4.0.3
       minimatch: 9.0.3
       semver: 7.6.0
-      ts-api-utils: 1.2.1(typescript@5.4.2)
+      ts-api-utils: 1.3.0(typescript@5.4.2)
       typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
@@ -5158,6 +5158,15 @@ packages:
 
   /ts-api-utils@1.2.1(typescript@5.4.2):
     resolution: {integrity: sha512-RIYA36cJn2WiH9Hy77hdF9r7oEwxAtB/TS9/S4Qd90Ap4z5FSiin5zEiTL44OII1Y3IIlEvxwxFUVgrHSZ/UpA==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      typescript: '>=4.2.0'
+    dependencies:
+      typescript: 5.4.2
+    dev: true
+
+  /ts-api-utils@1.3.0(typescript@5.4.2):
+    resolution: {integrity: sha512-UQMIo7pb8WRomKR1/+MFVLTroIvDVtMX3K6OUir8ynLyzB8Jeriont2bTAtmNPa1ekAgN7YPDyf6V+ygrdU+eQ==}
     engines: {node: '>=16'}
     peerDependencies:
       typescript: '>=4.2.0'
