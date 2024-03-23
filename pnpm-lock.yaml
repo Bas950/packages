@@ -16,10 +16,10 @@ importers:
         version: 1.8.4(@commitlint/lint@17.8.1)(@types/node@20.11.30)(typescript@5.4.2)
       '@recodive/eslint-config':
         specifier: ^1.6.0
-        version: 1.8.4(@rushstack/eslint-patch@1.7.2)(eslint@8.57.0)(typescript@5.4.2)
+        version: 1.8.4(@rushstack/eslint-patch@1.8.0)(eslint@8.57.0)(typescript@5.4.2)
       '@rushstack/eslint-patch':
         specifier: ^1.7.2
-        version: 1.7.2
+        version: 1.8.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.0.0
         version: 7.2.0(@typescript-eslint/parser@7.3.1)(eslint@8.57.0)(typescript@5.4.2)
@@ -1121,14 +1121,14 @@ packages:
       - typescript
     dev: true
 
-  /@recodive/eslint-config@1.8.4(@rushstack/eslint-patch@1.7.2)(eslint@8.57.0)(typescript@5.4.2):
+  /@recodive/eslint-config@1.8.4(@rushstack/eslint-patch@1.8.0)(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-FmVYcwd13lvVs9FzC4A6J5qjHeF31JltyGDxYpEOLN5swL1dlz+wF/WUu0MNgghpTXqgs+V7nFNGIjZcTeWioQ==}
     peerDependencies:
       '@rushstack/eslint-patch': ^1.2.0
       eslint: '>= 8.38.0'
       typescript: '>= 5.3.3'
     dependencies:
-      '@rushstack/eslint-patch': 1.7.2
+      '@rushstack/eslint-patch': 1.8.0
       '@stylistic/eslint-plugin': 1.6.3(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/eslint-plugin': 7.2.0(@typescript-eslint/parser@7.3.1)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser': 7.3.1(eslint@8.57.0)(typescript@5.4.2)
@@ -1251,8 +1251,8 @@ packages:
     dev: true
     optional: true
 
-  /@rushstack/eslint-patch@1.7.2:
-    resolution: {integrity: sha512-RbhOOTCNoCrbfkRyoXODZp75MlpiHMgbE5MEBZAnnnLyQNgrigEj4p0lzsMDyc1zVsJDLrivB58tgg3emX0eEA==}
+  /@rushstack/eslint-patch@1.8.0:
+    resolution: {integrity: sha512-0HejFckBN2W+ucM6cUOlwsByTKt9/+0tWhqUffNIcHqCXkthY/mZ7AuYPK/2IIaGWhdl0h+tICDO0ssLMd6XMQ==}
     dev: true
 
   /@sinclair/typebox@0.27.8:
