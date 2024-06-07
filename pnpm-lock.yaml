@@ -82,7 +82,7 @@ importers:
     devDependencies:
       got:
         specifier: ^14.2.0
-        version: 14.3.0
+        version: 14.4.0
       typescript:
         specifier: ^5.3.3
         version: 5.4.5
@@ -3541,8 +3541,8 @@ packages:
       get-intrinsic: 1.2.4
     dev: true
 
-  /got@14.3.0:
-    resolution: {integrity: sha512-vZkrXdq5BtPWTXqvjXSpl6zky3zpHaOVfSug/RfFHu3YrtSsvYzopVMDqrh2do77WnGoCSSRCHW25zXOSAQ9zw==}
+  /got@14.4.0:
+    resolution: {integrity: sha512-baa2HMfREJ9UQSXOPwWe0DNK+FT8Okcxe9kmTJvaetv2q/MUxq0qFzEnfSbxo+wj45/QioGcH5ZhuT9VBIPJ5Q==}
     engines: {node: '>=20'}
     dependencies:
       '@sindresorhus/is': 6.3.1
