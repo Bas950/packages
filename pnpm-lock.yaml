@@ -82,7 +82,7 @@ importers:
     devDependencies:
       got:
         specifier: ^14.2.0
-        version: 14.4.0
+        version: 14.4.1
       typescript:
         specifier: ^5.3.3
         version: 5.4.5
@@ -3541,8 +3541,8 @@ packages:
       get-intrinsic: 1.2.4
     dev: true
 
-  /got@14.4.0:
-    resolution: {integrity: sha512-baa2HMfREJ9UQSXOPwWe0DNK+FT8Okcxe9kmTJvaetv2q/MUxq0qFzEnfSbxo+wj45/QioGcH5ZhuT9VBIPJ5Q==}
+  /got@14.4.1:
+    resolution: {integrity: sha512-IvDJbJBUeexX74xNQuMIVgCRRuNOm5wuK+OC3Dc2pnSoh1AOmgc7JVj7WC+cJ4u0aPcO9KZ2frTXcqK4W/5qTQ==}
     engines: {node: '>=20'}
     dependencies:
       '@sindresorhus/is': 6.3.1
@@ -3556,6 +3556,7 @@ packages:
       lowercase-keys: 3.0.0
       p-cancelable: 4.0.1
       responselike: 3.0.0
+      type-fest: 4.20.0
     dev: true
 
   /graceful-fs@4.2.11:
@@ -5605,6 +5606,11 @@ packages:
   /type-fest@0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+    dev: true
+
+  /type-fest@4.20.0:
+    resolution: {integrity: sha512-MBh+PHUHHisjXf4tlx0CFWoMdjx8zCMLJHOjnV1prABYZFHqtFOyauCIK2/7w4oIfwkF8iNhLtnJEfVY2vn3iw==}
+    engines: {node: '>=16'}
     dev: true
 
   /typed-array-buffer@1.0.2:
