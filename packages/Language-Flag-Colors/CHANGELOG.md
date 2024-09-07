@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- 353451c: Adds support for cmn (Chinese Mandarin)
+
 ## 3.1.0
 
 ### Minor Changes
