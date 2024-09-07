@@ -24,7 +24,8 @@ describe("Languages array", () => {
 		}
 
 		expect(shouldFail).toBeFalsy();
-		expect(languages.length).toBe(crowdinLanguages.length);
+		//* -1 because we have a few languages that are not in Crowdin
+		expect(languages.length - 1).toBe(crowdinLanguages.length);
 	});
 });
 

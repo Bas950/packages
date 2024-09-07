@@ -1225,6 +1225,32 @@ const languages: Language[] = [
 		nativeName: "简体中文",
 	},
 	{
+		country: "China",
+		countryCode: "cn",
+		direction: "ltr",
+		flag: {
+			emoji: "🇨🇳",
+			flagColors: [
+				{ base10: 15_604_773, cmyk: [0, 88, 84, 7], hex: "#EE1C25", rgb: [238, 28, 37] },
+				{ base10: 16_776_960, cmyk: [0, 0, 100, 0], hex: "#FFFF00", rgb: [255, 255, 0] },
+			],
+			image: "https://crowdin.com/images/flags/zh-CN.png",
+			primaryColor: { base10: 15_604_773, cmyk: [0, 88, 84, 7], hex: "#EE1C25", rgb: [238, 28, 37] },
+		},
+		ids: {
+			ISO_639_1: "zh",
+			ISO_639_2: "zho",
+			ISO_639_3: "cmn",
+			androidCode: "zh-rCN",
+			glottolog: "mand1415",
+			locale: "cmn-CN",
+			osxCode: "cmn-Hans.lproj",
+			osxLocale: "cmn-Hans",
+		},
+		name: "Chinese Mandarin",
+		nativeName: "普通话",
+	},
+	{
 		country: "Taiwan",
 		countryCode: "tw",
 		direction: "ltr",
