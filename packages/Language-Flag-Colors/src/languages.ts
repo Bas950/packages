@@ -4516,8 +4516,8 @@ const languages: Language[] = [
 		},
 		ids: {
 			ISO_639_1: "ln",
-			ISO_639_2: "lin",
-			ISO_639_3: "lin",
+			ISO_639_2: "lit",
+			ISO_639_3: "lit",
 			androidCode: "lt-rLT",
 			glottolog: "ling1269",
 			locale: "lt-LT",
