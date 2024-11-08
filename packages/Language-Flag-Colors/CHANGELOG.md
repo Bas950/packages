@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.1
+
+### Patch Changes
+
+- 4cf4def: fix: change Lithuanian's iso-639-2, -3 to lit
+
 ## 3.2.0
 
 ### Minor Changes
