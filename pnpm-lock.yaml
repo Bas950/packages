@@ -31,7 +31,7 @@ importers:
         version: 1.6.0(vitest@1.6.0)
       '@vitest/ui':
         specifier: ^3.0.0
-        version: 3.0.3(vitest@1.6.0)
+        version: 3.0.4(vitest@1.6.0)
       commitlint:
         specifier: ^19.0.0
         version: 19.6.1(@types/node@22.10.10)(typescript@5.4.5)
@@ -70,7 +70,7 @@ importers:
         version: 5.4.5
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.3)
+        version: 1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.4)
 
   packages/DisplayAsTree:
     devDependencies:
@@ -2022,7 +2022,7 @@ packages:
       std-env: 3.7.0
       strip-literal: 2.1.0
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.3)
+      vitest: 1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.4)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2035,8 +2035,8 @@ packages:
       chai: 4.4.1
     dev: true
 
-  /@vitest/pretty-format@3.0.3:
-    resolution: {integrity: sha512-gCrM9F7STYdsDoNjGgYXKPq4SkSxwwIU5nkaQvdUxiQ0EcNlez+PdKOVIsUJvh9P9IeIFmjn4IIREWblOBpP2Q==}
+  /@vitest/pretty-format@3.0.4:
+    resolution: {integrity: sha512-ts0fba+dEhK2aC9PFuZ9LTpULHpY/nd6jhAQ5IMU7Gaj7crPCTdCFfgvXxruRBLFS+MLraicCuFXxISEq8C93g==}
     dependencies:
       tinyrainbow: 2.0.0
     dev: true
@@ -2063,19 +2063,19 @@ packages:
       tinyspy: 2.2.0
     dev: true
 
-  /@vitest/ui@3.0.3(vitest@1.6.0):
-    resolution: {integrity: sha512-kGavHxFA3dETa61mgzdvxc3u/JSCiHR2o/0Z99IE8EAwtFxSLZeb2MofPKNVCPY3IAIcTx4blH57BJ1GuiRAUA==}
+  /@vitest/ui@3.0.4(vitest@1.6.0):
+    resolution: {integrity: sha512-e+s2F9e9FUURkZ5aFIe1Fi3Y8M7UF6gEuShcaV/ur7y/Ldri+1tzWQ1TJq9Vas42NXnXvCAIrU39Z4U2RyET6g==}
     peerDependencies:
-      vitest: 3.0.3
+      vitest: 3.0.4
     dependencies:
-      '@vitest/utils': 3.0.3
+      '@vitest/utils': 3.0.4
       fflate: 0.8.2
       flatted: 3.3.2
       pathe: 2.0.2
       sirv: 3.0.0
       tinyglobby: 0.2.10
       tinyrainbow: 2.0.0
-      vitest: 1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.3)
+      vitest: 1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.4)
     dev: true
 
   /@vitest/utils@1.6.0:
@@ -2087,10 +2087,10 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /@vitest/utils@3.0.3:
-    resolution: {integrity: sha512-f+s8CvyzPtMFY1eZKkIHGhPsQgYo5qCm6O8KZoim9qm1/jT64qBgGpO5tHscNH6BzRHM+edLNOP+3vO8+8pE/A==}
+  /@vitest/utils@3.0.4:
+    resolution: {integrity: sha512-8BqC1ksYsHtbWH+DfpOAKrFw3jl3Uf9J7yeFh85Pz52IWuh1hBBtyfEbRNNZNjl8H8A5yMLH9/t+k7HIKzQcZQ==}
     dependencies:
-      '@vitest/pretty-format': 3.0.3
+      '@vitest/pretty-format': 3.0.4
       loupe: 3.1.2
       tinyrainbow: 2.0.0
     dev: true
@@ -5368,7 +5368,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.3):
+  /vitest@1.6.0(@types/node@22.10.10)(@vitest/ui@3.0.4):
     resolution: {integrity: sha512-H5r/dN06swuFnzNFhq/dnz37bPXnq8xB2xB5JOVk8K09rUtoeNN+LHWkoQ0A/i3hvbUKKcCei9KpbxqHMLhLLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -5398,7 +5398,7 @@ packages:
       '@vitest/runner': 1.6.0
       '@vitest/snapshot': 1.6.0
       '@vitest/spy': 1.6.0
-      '@vitest/ui': 3.0.3(vitest@1.6.0)
+      '@vitest/ui': 3.0.4(vitest@1.6.0)
       '@vitest/utils': 1.6.0
       acorn-walk: 8.3.2
       chai: 4.4.1
