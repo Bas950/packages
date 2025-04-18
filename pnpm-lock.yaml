@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.1
-        version: 2.29.0
+        version: 2.29.1
       '@recodive/configs':
         specifier: ^1.6.0
         version: 1.8.4(@commitlint/lint@17.8.1)(@types/node@22.14.1)(typescript@5.4.5)
@@ -209,8 +209,8 @@ packages:
       '@changesets/types': 6.1.0
     dev: true
 
-  /@changesets/cli@2.29.0:
-    resolution: {integrity: sha512-VQdSo9L/Y+PgX1HbytCSftadmHIOK20Y8mOhORDBwaelgjHccxYtO3YBDDhDdaZEPctcuH1YPmIyodHJADXwZA==}
+  /@changesets/cli@2.29.1:
+    resolution: {integrity: sha512-Y1Z7pVxM2PzKIONyz8IOhExr24HgUxyUxd7jkBkpUra0D6rTSeHuOAUE/syUIMQzzFg5r+1YFXq+YVlU/xFk/w==}
     hasBin: true
     dependencies:
       '@changesets/apply-release-plan': 7.0.12
