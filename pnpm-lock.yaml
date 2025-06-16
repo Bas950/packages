@@ -43,7 +43,7 @@ importers:
         version: 10.1.5(eslint@8.57.1)
       eslint-plugin-jest:
         specifier: ^28.0.0
-        version: 28.13.3(@typescript-eslint/eslint-plugin@8.0.0)(eslint@8.57.1)(typescript@5.4.5)
+        version: 28.13.5(@typescript-eslint/eslint-plugin@8.0.0)(eslint@8.57.1)(typescript@5.4.5)
       eslint-plugin-unicorn:
         specifier: ^59.0.0
         version: 59.0.1(eslint@8.57.1)
@@ -2855,8 +2855,8 @@ packages:
       eslint: 8.57.1
     dev: true
 
-  /eslint-plugin-jest@28.13.3(@typescript-eslint/eslint-plugin@8.0.0)(eslint@8.57.1)(typescript@5.4.5):
-    resolution: {integrity: sha512-BwC7TkFKn59tyfi6Zd9p/bcVVYOjWqp80jeaQvMy1fNFo8iDF8D5XvoSMM7CPaL6lQXPXCgD+RD4onlSsFelIw==}
+  /eslint-plugin-jest@28.13.5(@typescript-eslint/eslint-plugin@8.0.0)(eslint@8.57.1)(typescript@5.4.5):
+    resolution: {integrity: sha512-ThdhaLPqK78iVjWY1zIfe4WdcVB0NgxZzsOE38SRCc/i3lPIcdfkOuWMC6m96LAg9zAbPPY7LSTXXT0Pf8J7pQ==}
     engines: {node: ^16.10.0 || ^18.12.0 || >=20.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^6.0.0 || ^7.0.0 || ^8.0.0
