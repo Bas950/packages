@@ -106,7 +106,7 @@ importers:
         version: 7.0.0
       zod:
         specifier: ^3.22.4
-        version: 3.25.64
+        version: 3.25.66
     devDependencies:
       typescript:
         specifier: ^5.3.3
@@ -5635,6 +5635,6 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod@3.25.64:
-    resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
+  /zod@3.25.66:
+    resolution: {integrity: sha512-qr0yTfytD1ne6C9uZi0iu4+TGp+1J6wqoC17ugWg7EPuqT/ml21I2rqYbfeOPjeg6vHPnayIsD3CS3egsPaBrg==}
     dev: false
