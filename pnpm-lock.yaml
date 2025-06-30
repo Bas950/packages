@@ -58,7 +58,7 @@ importers:
         version: link:packages/Monorepo-Coverage-Badges
       prettier:
         specifier: ^3.2.5
-        version: 3.6.1
+        version: 3.6.2
       rimraf:
         specifier: ^6.0.0
         version: 6.0.1
@@ -4621,8 +4621,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier@3.6.1:
-    resolution: {integrity: sha512-5xGWRa90Sp2+x1dQtNpIpeOQpTDBs9cZDmA/qs2vDNN2i18PdapqY7CmBeyLlMuGqXJRIOPaCaVZTLNQRWUH/A==}
+  /prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
