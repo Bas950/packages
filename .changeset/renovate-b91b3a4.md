@@ -1,0 +1,5 @@
+---
+'monorepo-coverage-badges': patch
+---
+
+
